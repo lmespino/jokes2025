@@ -40,32 +40,30 @@
 
 # Function to display the satisfaction rate based on user input
 def satisfaction_rate(rate):
-    final_score = int(rate * 10)
-    print(f"{final_score} percent satisfaction rate")
+    final_score = int(rate * 10) # Code to make the number a percentage
+    print(f"{final_score} percent satisfaction rate") 
 
-# Function to ask for another joke
+# Function to ask for another joke or to finish the program
 def ask_another_joke():
     return input("Do you want to hear another joke or are you finished? ").lower()
 
 # Function to tell a specific joke
 def tell_jokes(joke):
-    if joke == "robbers":
+    if joke == "robbers": # Joke for robbers prompt
         input("Knock Knock ")
         input("Calder ")
         print("Calder police - I've been robbed!")
-    elif joke == "tanks":
+    elif joke == "tanks": # Joke for tanks prompt
         input("Knock Knock ")
         input("Tank ")
         print("You are welcome!")
-    elif joke == "pencils":
+    elif joke == "pencils": # Joke for pencils prompt
         input("Knock Knock ")
         input("Broken pencil ")
         print("Nevermind, it's pointless!")
 
 # Function to start the joke game
-def start_joke_game():
-    # Initial user input
-    joke = input("Do you want to hear a joke? ").lower()
+def start_joke_game(joke):
     
     # Ends the game here if user says no
     if joke == "no":
@@ -77,7 +75,7 @@ def start_joke_game():
 
     # Iteration for repeating the joke game
     # If the user says yes for jokes, it asks them what joke they would like to hear
-    while joke == "yes":
+    while joke == "yes" or joke == "another":
         print("Great, Let's Play")
         question = input(f"Do you want to hear a joke about {', '.join(all_jokes)}? ").lower()
 
@@ -99,5 +97,5 @@ def start_joke_game():
         else:                                    # The yes/no results to recommending
             print("Sorry you did not enjoy it.")
 
-# Call to start the jokes function
-start_joke_game()
+# Call to start the joke game function
+start_joke_game(joke = input("Do you want to hear a joke? ").lower()) # The user input
